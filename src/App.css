@@ -5,4 +5,10 @@ body {
 .back {
   width: 100vw !important;
   height: 100vh !important;
+  z-index: -2 !important;
+  position: absolute
+}
+.heading{
+  font-size: 2.5rem !important;
+  color: whitesmoke
 }
