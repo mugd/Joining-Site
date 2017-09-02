@@ -33,13 +33,18 @@ class Home extends Component {
   render() {
 
     const { width } = this.state;
-    const isMobile = width <= 500;
+    const isMobile = width <= 600;
     if (isMobile) {
       return (
         <div>
           <Image src={this.state.bingBackUrl} className="back" />
           <Grid fluid>
-            <Heading />
+          <Row center="xs">
+              <Col xs={12} md={8} lg={8}>
+                <Heading />
+              </Col>
+              </Row>
+
             <Content />
             <br />
             <ButtonSection />
@@ -50,24 +55,24 @@ class Home extends Component {
       return (
         <div>
           <Image src={this.state.bingBackUrl} className="back" />
+          
           <Grid fluid>
-            <Heading />
-            <Content />
-            <br />
-            <Row center="xs">
+          
+            <Row middle="xs" >
+          
+            <Col xs={0} md={1} lg={1}/>
               <Col xs={12} md={8} lg={8}>
-                <div className="ms-font-su content">Upcoming Event
-                  </div>
-                <br/>
+              <h1></h1>
+         <br/>
+         <br/>
+         <br/>
+                <Heading />
               </Col>
-            </Row>
-            <Row center="xs">
-            <Col xs={12} md={8} lg={8}>
-                <EventCard />
-                <br/>
-              </Col>
-
-            </Row>
+              </Row>
+            <Content />
+       
+         <br/>
+        
             <ButtonSection />
           </Grid>
         </div>

@@ -7,8 +7,8 @@ export default class ButtonSection extends Component {
   render() {
     return (
       
-          <Row center="xs"> 
-         
+          <Row > 
+<Col xs={2} md={1} lg={1} />
             <Col xs={4} md={1} lg={1}>
 
               <PrimaryButton
