@@ -11,6 +11,7 @@ import Heading from './../Heading'
 import Content from './Content'
 import Form from './Form'
 import About from './About'
+
 var axios = require('axios');
 var years =
   [
@@ -35,6 +36,7 @@ class Home extends Component {
     axios.get('https://bingimages.herokuapp.com/')
       .then((r) => this.setState({ bingBackUrl: r.data.url }))
   }
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleWindowSizeChange);
   }
@@ -61,30 +63,17 @@ class Home extends Component {
                 <h1 className="ms-font-su ms-fontWeight-semibold heading">Microsoft Technical Group</h1>
                 {this.state.isFomSelected ? (
                   <div>
-                    <Form />
-                    <Row center='xs'>
-                 
-                      <Col xs={4} md={3} lg={3}>
-                        <PrimaryButton
-                          data-automation-id='test'
-                          checked={false}
-                          text='Back'
-                          sty
-                          onClick={() => this.setState({ isFomSelected: false })}
-                        />
-                      </Col>
-                      <Col xs={4} md={4} lg={4}>
-                        <CommandButton
-                          data-automation-id='test'
-                          iconProps={{ iconName: 'AddFriend' }}
-                          disabled={false}
-                          checked={false}
-                        >
-                          Register
-      </CommandButton>
-                      </Col>
-                    </Row>
+                    <Form >
 
+                      <PrimaryButton
+                        data-automation-id='test'
+                        checked={false}
+                        text='Back'
+                        sty
+                        onClick={() => this.setState({ isFomSelected: false })}
+                      />
+
+                    </Form>
                   </div>
                 ) : (
                     <div>
@@ -140,29 +129,17 @@ class Home extends Component {
                 <h1 className="ms-font-su ms-fontWeight-semibold headingdesktop">Microsoft Technical Group</h1>
                 {this.state.isFomSelected ? (
                   <div>
-                    <Form />
-                    <Row >
+                    <Form >
 
-                      <Col xs={4} md={3} lg={3}>
-                        <PrimaryButton
-                          data-automation-id='test'
-                          checked={false}
-                          text='Back'
-                          sty
-                          onClick={() => this.setState({ isFomSelected: false })}
-                        />
-                      </Col>
-                      <Col xs={4} md={4} lg={4}>
-                        <CommandButton
-                          data-automation-id='test'
-                          iconProps={{ iconName: 'AddFriend' }}
-                          disabled={false}
-                          checked={false}
-                        >
-                          Register
-          </CommandButton>
-                      </Col>
-                    </Row>
+                      <PrimaryButton
+                        data-automation-id='test'
+                        checked={false}
+                        text='Back'
+                        sty
+                        onClick={() => this.setState({ isFomSelected: false })}
+                      />
+
+                    </Form>
 
                   </div>
                 ) : (
