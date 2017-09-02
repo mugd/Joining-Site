@@ -9,9 +9,11 @@ import {
   CommandButton, PrimaryButton,
   IButtonProps
 } from 'office-ui-fabric-react/lib/Button';
-import ref from './../../../Config/constants'
+import { ref } from './../../../Config/constants'
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { Dialog, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog';
+import isEmail from 'validator/lib/isEmail';
+import isMobilePhone from 'validator/lib/isMobilePhone';
 var years =
   [
     { key: '1', text: 'First Year' },
@@ -22,54 +24,78 @@ var years =
   ];
 
 class Form extends Component {
-constructor(props){
-  super(props);
-  this.state = {
-    name:"",
-    githubHandle:"",
-    email:"",
-    year:"First Year",
-    phoneNumber:"",
-    hideDialog: true
+  constructor(props) {
+    super(props);
+    var date = new Date();
+    this.state = {
+      name: "",
+      githubHandle: "",
+      email: "",
+      year: "First Year",
+      phoneNumber: "",
+      hideDialog: true,
+      sk: 1,
+      date: date.toString()
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDialog = this.handleDialog.bind(this);
   }
-  this.handleSubmit = this.handleSubmit.bind(this);
-  this.handleDialog = this.handleDialog.bind(this);
-}
 
-handleSubmit() {
-  console.log(this.state.year);
-  this.handleDialog();
-}
-handleDialog() {
-this.setState({hideDialog:!this.state.hideDialog})
-}
+  handleSubmit() {
+    if (this.state.name !== "" &&
+      isMobilePhone(this.state.phoneNumber,'any')&&
+      isEmail(this.state.email)
+   ) {
+      ref.push(this.state)
+        .then(() => {
+          this.handleDialog();
+          this.setState({
+            name: "",
+            githubHandle: "",
+            email: "",
+            year: "First Year",
+            phoneNumber: "",
+            sk: 1
+          })
+        })
+        .catch(() => {
+          alert("Failed Try again !")
+        });
+    }else {
+      alert('Enter Valid Details !!!');
+    }
+
+  }
+  handleDialog() {
+    this.setState({ hideDialog: !this.state.hideDialog })
+  }
   render() {
-   
+
     return (
       <div>
-         <Dialog
-          hidden={ this.state.hideDialog }
-          onDismiss={  this.handleDialog }
-          dialogContentProps={ {
+        <Dialog
+          hidden={this.state.hideDialog}
+          onDismiss={this.handleDialog}
+          dialogContentProps={{
             type: DialogType.largeHeader,
             title: 'Thanks For Registring ',
             subText: 'You will get shortly email for slack and joing mtg!'
-          } }
-          modalProps={ {
+          }}
+          modalProps={{
             isBlocking: false,
             containerClassName: 'ms-dialogMainOverride'
-          } }
+          }}
         >
-         
+
           <DialogFooter>
-            <PrimaryButton onClick={this.handleDialog   } text='OK' />
+            <PrimaryButton onClick={this.handleDialog} text='OK' />
           </DialogFooter>
         </Dialog>
 
-        <TextField   onChanged={(value)=>{this.setState({name:value})}} classID="hack" placeholder='firstname lastname' label="Name" required={true} ariaLabel='Please enter text here' />
-        <TextField   onChanged={(value)=>{this.setState({email:value})}} placeholder='user@example.com' label="Email" required={true} ariaLabel='Please enter text here' />
-        <TextField   onChanged={(value)=>{this.setState({phoneNumber:value})}} label="Phone Number" required={true} ariaLabel='Please enter text here' addonString="+91" />
-        <TextField   onChanged={(value)=>{this.setState({githubHandle:value})}}placeholder='mugd' label="Github Handle" required={false} ariaLabel='Please enter text here' addonString="https://github.com/" />
+        <TextField value={this.state.name} onChanged={(value) => { this.setState({ name: value }) }} placeholder='firstname lastname' label="Name" required={true} ariaLabel='Please enter text here' />
+        <TextField value={this.state.email} onChanged={(value) => { this.setState({ email: value }) }} placeholder='user@example.com' label="Email" required={true} ariaLabel='Please enter text here' />
+        <TextField value={this.state.phoneNumber} onChanged={(value) => { this.setState({ phoneNumber: value }) }} label="Phone Number" required={true} ariaLabel='Please enter text here' addonString="+91" />
+        <TextField value={this.state.githubHandle} onChanged={(value) => { this.setState({ githubHandle: value }) }} placeholder='mugd' label="Github Handle" required={false} ariaLabel='Please enter text here' addonString="https://github.com/" />
         <ComboBox
           defaultSelectedKey='1'
           label='Year'
@@ -77,30 +103,31 @@ this.setState({hideDialog:!this.state.hideDialog})
           ariaLabel='Basic ComboBox example'
           allowFreeform={false}
           autoComplete='on'
-          onChanged={(value)=>{this.setState({year:value.text})}}
+          selectedKey={this.state.sk}
+          onChanged={(value) => { this.setState({ sk: value.key, year: value.text }) }}
           options={years}
         />
-       
-        <br/>
-        <br/>
+
+        <br />
+        <br />
         <Row center='xs'>
 
-                        <Col xs={4} md={3} lg={3}>
-                        {this.props.children}
-                        </Col>
-                        <Col xs={4} md={4} lg={4}>
-                          <CommandButton
-                            data-automation-id='test'
-                            iconProps={{ iconName: 'AddFriend' }}
-                            disabled={false}
-                            checked={false}
-                            onClick={this.handleSubmit}
-                          >
-                            Register
+          <Col xs={4} md={3} lg={3}>
+            {this.props.children}
+          </Col>
+          <Col xs={4} md={4} lg={4}>
+            <CommandButton
+              data-automation-id='test'
+              iconProps={{ iconName: 'AddFriend' }}
+              disabled={false}
+              checked={false}
+              onClick={this.handleSubmit}
+            >
+              Register
                          </CommandButton>
-                        </Col>
-                      </Row>
-      
+          </Col>
+        </Row>
+
       </div>
     )
   }

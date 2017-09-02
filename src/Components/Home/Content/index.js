@@ -7,7 +7,9 @@ export default class Content extends Component {
           <Col xs={0} md={1} lg={1} />
         <Col xs={12} md={5} lg={5} >
         
-          <div className="ms-font-xl content"> Bvp Microsoft Technical Group is Microsoft student chapter which is managed It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</div>
+          <div className="ms-font-xl content"> Microsoft Technical Group (MTG) is an independent chapter of Bharati Vidyapeeth's College of Engineering, New Delhi.
+We are a team of people dedicated towards learning and working with the latest computer science technologies. MTG was started with the philosophy of sharing our knowledge and learning together with our group members and we are proud to say we stuck to it from day 1 till today and we are determined to continue the same way in future.
+Together we learn, together we grow.</div>
         </Col>
       </Row>
     )

@@ -79,7 +79,8 @@ class Home extends Component {
                     <div>
                       <About />
 
-
+                    <br/>
+                    <br/>
                       <Row center='xs' >
 
                         <Col xs={4} md={3} lg={3}>
