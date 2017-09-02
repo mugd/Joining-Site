@@ -7,10 +7,9 @@ export default class ButtonSection extends Component {
   render() {
     return (
       
-          <Row > 
-<Col xs={2} md={1} lg={1} />
-            <Col xs={4} md={1} lg={1}>
-
+          <Row >
+            
+            <Col xs={4} md={3} lg={3}>
               <PrimaryButton
                 data-automation-id='test'
                 checked={false}
@@ -18,7 +17,7 @@ export default class ButtonSection extends Component {
                 onClick={() => alert('Clicked')}
               />
             </Col>
-            <Col xs={4} md={1} lg={1}>
+            <Col xs={4} md={4} lg={4}>
 
               <PrimaryButton
                 data-automation-id='test'
