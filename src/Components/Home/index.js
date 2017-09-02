@@ -54,14 +54,71 @@ class Home extends Component {
           <Image src={this.state.bingBackUrl} className="back" />
           <Grid fluid>
             <Row center="xs">
-              <Col xs={12} md={8} lg={8}>
-                <Heading />
+              <Col xs={12} md={4} lg={4}>
+
+
+
+                <h1 className="ms-font-su ms-fontWeight-semibold heading">Microsoft Technical Group</h1>
+                {this.state.isFomSelected ? (
+                  <div>
+                    <Form />
+                    <Row center='xs'>
+                 
+                      <Col xs={4} md={3} lg={3}>
+                        <PrimaryButton
+                          data-automation-id='test'
+                          checked={false}
+                          text='Back'
+                          sty
+                          onClick={() => this.setState({ isFomSelected: false })}
+                        />
+                      </Col>
+                      <Col xs={4} md={4} lg={4}>
+                        <CommandButton
+                          data-automation-id='test'
+                          iconProps={{ iconName: 'AddFriend' }}
+                          disabled={false}
+                          checked={false}
+                        >
+                          Register
+      </CommandButton>
+                      </Col>
+                    </Row>
+
+                  </div>
+                ) : (
+                    <div>
+                      <About />
+
+
+                      <Row center='xs' >
+
+                        <Col xs={4} md={3} lg={3}>
+                          <PrimaryButton
+                            data-automation-id='test'
+                            checked={false}
+                            text='Join'
+                            onClick={() => this.setState({ isFomSelected: true })}
+                          />
+                        </Col>
+                        <Col xs={4} md={4} lg={4}>
+
+                          <PrimaryButton
+                            data-automation-id='test'
+                            checked={false}
+                            text='Events'
+                            onClick={() => alert('Clicked')}
+                          />
+                        </Col>
+                      </Row>
+
+                    </div>
+                  )}
+
+
               </Col>
             </Row>
 
-            <Content />
-            <br />
-            <ButtonSection />
           </Grid>
         </div>
       )
@@ -76,7 +133,7 @@ class Home extends Component {
 
               <Col xs={0} sm={8} md={8} lg={8}>
               </Col>
-              <Col xs={0} md={4} lg={4}>
+              <Col xs={12} md={4} lg={4}>
                 <br />
 
                 <br />
@@ -111,9 +168,9 @@ class Home extends Component {
                 ) : (
                     <div>
                       <About />
-                      <br/>
-                      <br/>
-                      <br/>
+                      <br />
+                      <br />
+                      <br />
                       <Row >
 
                         <Col xs={4} md={3} lg={3}>

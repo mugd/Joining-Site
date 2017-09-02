@@ -26,6 +26,21 @@ body {
   
   color: whitesmoke
 }
-.desktopcontent{
-  color:
+
+
+@media screen and (max-width: 768px) {
+  .heading{
+    font-size: 2rem !important;
+    color: whitesmoke
+  }
+  .ms-Label {
+    color: whitesmoke !important;
+  }
+  .ms-Button-label  {
+    color: whitesmoke !important;
+  }
+  .desktopcontent{
+    color: whitesmoke !important;
+  }
+ 
 }
