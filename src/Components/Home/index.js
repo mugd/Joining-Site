@@ -64,6 +64,9 @@ class Home extends Component {
               <Col xs={12} md={8} lg={8}>
               <h1></h1>
          <br/>
+         <h1></h1>
+         <br/>
+         <br/>
          <br/>
          <br/>
                 <Heading />
