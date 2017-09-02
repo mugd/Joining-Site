@@ -114,16 +114,20 @@ class Form extends Component {
             {this.props.children}
           </Col>
           <Col xs={4} md={4} lg={4}>
-            <CommandButton
+            <PrimaryButton
               data-automation-id='test'
               iconProps={{ iconName: 'AddFriend' }}
               disabled={false}
               checked={false}
+              text='Register'
               onClick={this.handleSubmit}
-            >
-              Register
-                         </CommandButton>
+            />
+              
+                      
+
+                
           </Col>
+        
         </Row>
 
       </div>

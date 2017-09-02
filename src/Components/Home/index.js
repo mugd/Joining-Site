@@ -105,13 +105,23 @@ class Home extends Component {
                             onClick={() => this.setState({ isFomSelected: true })}
                           />
                         </Col>
-                        <Col xs={4} md={4} lg={4}>
+                        <Col xs={4} md={6} lg={3}>
 
                           <PrimaryButton
                             data-automation-id='test'
                             checked={false}
                             text='Events'
                             onClick={() => this.setState({hideDialog:false})}
+                          />
+                        </Col>
+                        <Col xs={4} md={3} lg={3}>
+
+                          <PrimaryButton
+                            data-automation-id='test'
+                            iconProps={{ iconName: 'FacebookLogo' }}
+                            checked={false}
+                            text=''
+                            onClick={() => window.open('https://www.facebook.com/bvpmtg')}
                           />
                         </Col>
                       </Row>
@@ -184,23 +194,33 @@ class Home extends Component {
                     
                       <Row >
 
-                        <Col xs={4} md={3} lg={3}>
-                          <PrimaryButton
-                            data-automation-id='test'
-                            checked={false}
-                            text='Join'
-                            onClick={() => this.setState({ isFomSelected: true })}
-                          />
-                        </Col>
-                        <Col xs={4} md={4} lg={4}>
+                      <Col xs={4} md={3} lg={3}>
+                      <PrimaryButton
+                        data-automation-id='test'
+                        checked={false}
+                        text='Join'
+                        onClick={() => this.setState({ isFomSelected: true })}
+                      />
+                    </Col>
+                    <Col xs={4} md={6} lg={3}>
 
-                          <PrimaryButton
-                            data-automation-id='test'
-                            checked={false}
-                            text='Events'
-                            onClick={() => this.setState({hideDialog:false})}
-                          />
-                        </Col>
+                      <PrimaryButton
+                        data-automation-id='test'
+                        checked={false}
+                        text='Events'
+                        onClick={() => this.setState({hideDialog:false})}
+                      />
+                    </Col>
+                    <Col xs={4} md={3} lg={3}>
+
+                      <PrimaryButton
+                        data-automation-id='test'
+                        iconProps={{ iconName: 'FacebookLogo' }}
+                        checked={false}
+                        text=''
+                        onClick={() => window.open('https://www.facebook.com/bvpmtg')}
+                      />
+                    </Col>
                       </Row>
 
                     </div>
