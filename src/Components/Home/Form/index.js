@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import { TextField, } from 'office-ui-fabric-react/lib/TextField';
 import {
   ComboBox,
-  IComboBoxOption
 } from 'office-ui-fabric-react/lib/ComboBox';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import {  Row, Col } from 'react-flexbox-grid';
 import {
   CommandButton, PrimaryButton,
-  IButtonProps
+
 } from 'office-ui-fabric-react/lib/Button';
 import { ref } from './../../../Config/constants'
-import { Label } from 'office-ui-fabric-react/lib/Label';
 import { Dialog, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog';
 import isEmail from 'validator/lib/isEmail';
 import isMobilePhone from 'validator/lib/isMobilePhone';
@@ -78,8 +76,8 @@ class Form extends Component {
           onDismiss={this.handleDialog}
           dialogContentProps={{
             type: DialogType.largeHeader,
-            title: 'Thanks For Registring ',
-            subText: 'You will get shortly email for slack and joing mtg!'
+            title: 'Welcome to MTG!',
+            subText: 'Thanks for registering with us. You will soon be notified by email.'
           }}
           modalProps={{
             isBlocking: false,
