@@ -17,7 +17,7 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      bingBackUrl: "",
+      bingBackUrl: "http://www.bing.com/az/hprichbg/rb/CrailHarbour_EN-US9191394748_1920x1080.jpg",
       width: window.innerWidth,
       hideDialog: true,
       isFomSelected: false
