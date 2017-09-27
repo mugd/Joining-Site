@@ -111,7 +111,7 @@ class Home extends Component {
                             data-automation-id='test'
                             checked={false}
                             text='Events'
-                            onClick={() => window.open('https://www.facebook.com/bvpmtg')}
+                            onClick={() => window.open('https://www.facebook.com/events/1782252415406442/')}
                           />
                         </Col>
                         <Col xs={4} md={3} lg={3}>
