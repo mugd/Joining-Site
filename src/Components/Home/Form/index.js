@@ -5,7 +5,7 @@ import {
 } from 'office-ui-fabric-react/lib/ComboBox';
 import {  Row, Col } from 'react-flexbox-grid';
 import {
-  CommandButton, PrimaryButton,
+PrimaryButton,
 
 } from 'office-ui-fabric-react/lib/Button';
 import { ref } from './../../../Config/constants'
